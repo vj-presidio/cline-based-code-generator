@@ -1,0 +1,2212 @@
+[
+	{
+		"model": "amazon.titan-embed-text-v1",
+		"tasks": [
+			{
+				"task": "implement a test case to validate extension is activated",
+				"requiredFiles": ["src/test/suite/extension.test.ts", "src/extension.ts"],
+				"files": [
+					"src/test/suite/extension.test.js",
+					"src/test/extension.test.ts",
+					"src/extension.ts",
+					"src/test/suite/index.js"
+				],
+				"stats": {
+					"time": 7910,
+					"score": {
+						"matches": 2,
+						"total": 2,
+						"percentage": 100,
+						"matchedFiles": ["extension.test.ts", "extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a new tool to execute shell commands",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/core/prompts/system.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/core/prompts/system.ts",
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/core/assistant-message/custom.ts",
+					"src/extension.ts",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 7776,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["TerminalProcess.ts", "system.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a security scanner for detecting sensitive files",
+				"requiredFiles": ["src/integrations/security/code-scan.ts", "src/core/prompts/system.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/core/assistant-message/custom.ts",
+					"src/core/prompts/custom.ts",
+					"src/core/prompts/system.ts",
+					"src/integrations/security/code-scan.ts",
+					"src/services/ripgrep/index.ts",
+					"src/utils/fs.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/integrations/diagnostics/DiagnosticsMonitor.ts"
+				],
+				"stats": {
+					"time": 8410,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["code-scan.ts", "system.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement a file system watcher for .gitignore changes",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts", "src/core/Cline.ts", "src/extension.ts"],
+				"files": [
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/services/glob/list-files.ts",
+					"src/utils/fs.ts",
+					"src/utils/customFs.ts",
+					".gitignore",
+					"webview-ui/.gitignore"
+				],
+				"stats": {
+					"time": 7287,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement MCP server connection handling",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/core/Cline.ts"],
+				"files": [
+					"docs/mcp/mcp-quickstart.md",
+					"docs/mcp/mcp-server-from-github.md",
+					"docs/mcp/mcp-server-from-scratch.md",
+					"docs/mcp/README.md",
+					"src/services/mcp/McpHub.ts",
+					"src/shared/mcp.ts",
+					"webview-ui/src/components/mcp/McpView.tsx",
+					"webview-ui/src/utils/mcp.ts"
+				],
+				"stats": {
+					"time": 8565,
+					"score": {
+						"matches": 1,
+						"total": 2,
+						"percentage": 50,
+						"matchedFiles": ["McpHub.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a sliding window mechanism for message history",
+				"requiredFiles": ["src/core/sliding-window/index.ts"],
+				"files": [
+					"webview-ui/src/components/chat/ChatView.tsx",
+					"src/core/Cline.ts",
+					"src/core/sliding-window/index.ts",
+					"src/shared/ChatSettings.ts",
+					"src/shared/HistoryItem.ts",
+					"webview-ui/src/components/chat/ChatRowExtra.tsx",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 7816,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["index.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a code vectorization progress tracker",
+				"requiredFiles": ["src/integrations/code-prep/VectorizeCodeAgent.ts"],
+				"files": [
+					"src/integrations/code-prep/VectorizeCodeAgent.ts",
+					"src/integrations/notifications/index.ts",
+					"src/integrations/code-prep/type.ts",
+					"src/shared/WebviewMessage.ts",
+					"webview-ui/src/components/common/CheckpointControls.tsx",
+					"src/integrations/checkpoints/CheckpointTracker.ts"
+				],
+				"stats": {
+					"time": 7499,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["VectorizeCodeAgent.ts"]
+					}
+				}
+			},
+			{
+				"task": "add command palette integration for quick actions",
+				"requiredFiles": ["src/extension.ts"],
+				"files": [
+					"webview-ui/src/components/welcome/QuickActionTile.tsx",
+					"webview-ui/src/components/chat/ContextMenu.tsx",
+					"src/core/prompts/system.ts",
+					"webview-ui/src/components/chat/ChatView.tsx",
+					"src/extension.ts",
+					"package.json",
+					"webview-ui/src/components/welcome/QuickActions.tsx",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 8914,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement VS Code terminal integration with shell detection",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/services/mcp/McpHub.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/workspace/get-python-env.ts",
+					"src/extension.ts",
+					"src/shared/ChatSettings.ts"
+				],
+				"stats": {
+					"time": 7053,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["TerminalProcess.ts"]
+					}
+				}
+			},
+			{
+				"task": "add workspace file system watcher for live updates",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts"],
+				"files": [
+					"src/integrations/workspace/WorkspaceTracker.ts",
+					"src/core/Cline.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/core/prompts/system.ts",
+					"src/extension.ts",
+					"src/shared/ExtensionMessage.ts",
+					"src/shared/WebviewMessage.ts",
+					"src/core/webview/ClineProvider.ts"
+				],
+				"stats": {
+					"time": 8518,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "create VS Code status bar item for MCP connection status",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/extension.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/extension.ts",
+					"src/services/mcp/McpHub.ts",
+					"webview-ui/src/components/mcp/McpView.tsx",
+					"src/shared/mcp.ts",
+					"webview-ui/src/utils/mcp.ts"
+				],
+				"stats": {
+					"time": 6877,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["McpHub.ts", "extension.ts"]
+					}
+				}
+			}
+		]
+	},
+	{
+		"model": "amazon.titan-embed-text-v2:0",
+		"tasks": [
+			{
+				"task": "implement a test case to validate extension is activated",
+				"requiredFiles": ["src/test/suite/extension.test.ts", "src/extension.ts"],
+				"files": [
+					"src/test/suite/extension.test.js",
+					"src/test/extension.test.ts",
+					"src/extension.ts",
+					"src/test/suite/index.js"
+				],
+				"stats": {
+					"time": 6250,
+					"score": {
+						"matches": 2,
+						"total": 2,
+						"percentage": 100,
+						"matchedFiles": ["extension.test.ts", "extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a new tool to execute shell commands",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/core/prompts/system.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"webview-ui/src/components/chat/ChatRow.tsx",
+					"src/core/Cline.ts",
+					"src/core/prompts/system.ts",
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/shared/WebviewMessage.ts",
+					"src/extension.ts"
+				],
+				"stats": {
+					"time": 8796,
+					"score": {
+						"matches": 3,
+						"total": 3,
+						"percentage": 100,
+						"matchedFiles": ["TerminalProcess.ts", "system.ts", "Cline.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a security scanner for detecting sensitive files",
+				"requiredFiles": ["src/integrations/security/code-scan.ts", "src/core/prompts/system.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/integrations/security/code-scan.ts",
+					"src/services/ripgrep/index.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/services/glob/list-files.ts",
+					"src/utils/fs.ts",
+					"src/core/prompts/custom.ts",
+					"src/integrations/diagnostics/DiagnosticsMonitor.ts",
+					"src/extension.ts"
+				],
+				"stats": {
+					"time": 9290,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["code-scan.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement a file system watcher for .gitignore changes",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts", "src/core/Cline.ts", "src/extension.ts"],
+				"files": [
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/services/glob/list-files.ts",
+					"src/utils/fs.ts",
+					"src/utils/customFs.ts",
+					"src/integrations/workspace/WorkspaceTracker.ts"
+				],
+				"stats": {
+					"time": 7407,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement MCP server connection handling",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/services/mcp/McpHub.ts",
+					"src/core/prompts/system.ts",
+					"src/shared/mcp.ts",
+					"src/webview-ui/src/components/mcp/McpView.tsx",
+					"src/webview-ui/src/utils/mcp.ts",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 8393,
+					"score": {
+						"matches": 1,
+						"total": 2,
+						"percentage": 50,
+						"matchedFiles": ["McpHub.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a sliding window mechanism for message history",
+				"requiredFiles": ["src/core/sliding-window/index.ts"],
+				"files": [
+					"src/core/sliding-window/index.ts",
+					"webview-ui/src/components/history/HistoryView.tsx",
+					"src/core/Cline.ts",
+					"webview-ui/src/components/chat/ChatView.tsx",
+					"src/shared/HistoryItem.ts",
+					"src/shared/ChatSettings.ts",
+					"webview-ui/src/components/settings/SettingsView.tsx",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 8460,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["index.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a code vectorization progress tracker",
+				"requiredFiles": ["src/integrations/code-prep/VectorizeCodeAgent.ts"],
+				"files": [
+					"src/integrations/code-prep/VectorizeCodeAgent.ts",
+					"src/core/webview/ClineProvider.ts",
+					"src/integrations/code-prep/type.ts",
+					"src/shared/WebviewMessage.ts",
+					"webview-ui/src/components/common/ProgressBar.tsx",
+					"webview-ui/src/components/chat/ChatView.tsx"
+				],
+				"stats": {
+					"time": 7807,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["VectorizeCodeAgent.ts"]
+					}
+				}
+			},
+			{
+				"task": "add command palette integration for quick actions",
+				"requiredFiles": ["src/extension.ts"],
+				"files": [
+					"webview-ui/src/components/welcome/QuickActions.tsx",
+					"webview-ui/src/components/welcome/QuickActionTile.tsx",
+					"webview-ui/src/components/chat/AutoApproveMenu.tsx",
+					"src/core/prompts/system.ts",
+					"src/extension.ts",
+					"package.json",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 8453,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement VS Code terminal integration with shell detection",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/services/mcp/McpHub.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/core/prompts/system.ts",
+					"src/extension.ts",
+					"src/shared/ChatSettings.ts",
+					"src/utils/constants.ts"
+				],
+				"stats": {
+					"time": 12007,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["TerminalProcess.ts"]
+					}
+				}
+			},
+			{
+				"task": "add workspace file system watcher for live updates",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts"],
+				"files": [
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/integrations/workspace/WorkspaceTracker.ts",
+					"src/integrations/diagnostics/DiagnosticsMonitor.ts",
+					"src/utils/instructions.ts",
+					"src/extension.ts",
+					"src/shared/ExtensionMessage.ts",
+					"src/shared/WebviewMessage.ts",
+					"src/utils/fs.ts"
+				],
+				"stats": {
+					"time": 8661,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "create VS Code status bar item for MCP connection status",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/extension.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/services/mcp/McpHub.ts",
+					"src/extension.ts",
+					"webview-ui/src/components/mcp/McpView.tsx",
+					"src/shared/mcp.ts",
+					"src/shared/ExtensionMessage.ts"
+				],
+				"stats": {
+					"time": 7025,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["McpHub.ts", "extension.ts"]
+					}
+				}
+			}
+		]
+	},
+	{
+		"model": "text-embedding-3-small",
+		"tasks": [
+			{
+				"task": "implement a test case to validate extension is activated",
+				"requiredFiles": ["src/test/suite/extension.test.ts", "src/extension.ts"],
+				"files": [
+					"src/test/suite/extension.test.js",
+					"src/test/extension.test.ts",
+					"src/extension.ts",
+					"src/test/suite/index.js"
+				],
+				"stats": {
+					"time": 6459,
+					"score": {
+						"matches": 2,
+						"total": 2,
+						"percentage": 100,
+						"matchedFiles": ["extension.test.ts", "extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a new tool to execute shell commands",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/core/prompts/system.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/core/prompts/system.ts",
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/core/Cline.ts",
+					"src/extension.ts",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 7170,
+					"score": {
+						"matches": 3,
+						"total": 3,
+						"percentage": 100,
+						"matchedFiles": ["TerminalProcess.ts", "system.ts", "Cline.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a security scanner for detecting sensitive files",
+				"requiredFiles": ["src/integrations/security/code-scan.ts", "src/core/prompts/system.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/integrations/security/code-scan.ts",
+					".vscodeignore",
+					"src/core/prompts/custom.ts",
+					"src/integrations/code-prep/CodeContextAddition.ts",
+					"src/services/glob/list-files.ts",
+					"src/utils/fs.ts",
+					"src/shared/ChatSettings.ts",
+					"src/extension.ts"
+				],
+				"stats": {
+					"time": 7747,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["code-scan.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement a file system watcher for .gitignore changes",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts", "src/core/Cline.ts", "src/extension.ts"],
+				"files": [
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/integrations/checkpoints/CheckpointTracker.ts",
+					"webview-ui/.gitignore",
+					".gitignore",
+					"src/services/glob/list-files.ts",
+					"src/utils/fs.ts"
+				],
+				"stats": {
+					"time": 6726,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement MCP server connection handling",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/core/Cline.ts"],
+				"files": [
+					"docs/mcp/mcp-server-from-scratch.md",
+					"docs/mcp/mcp-server-from-github.md",
+					"src/services/mcp/McpHub.ts",
+					"src/core/prompts/system.ts",
+					"src/shared/mcp.ts",
+					"src/shared/api.ts",
+					"webview-ui/src/components/mcp/McpView.tsx",
+					"src/shared/ExtensionMessage.ts"
+				],
+				"stats": {
+					"time": 7920,
+					"score": {
+						"matches": 1,
+						"total": 2,
+						"percentage": 50,
+						"matchedFiles": ["McpHub.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a sliding window mechanism for message history",
+				"requiredFiles": ["src/core/sliding-window/index.ts"],
+				"files": [
+					"webview-ui/src/components/chat/ChatView.tsx",
+					"src/core/webview/ClineProvider.ts",
+					"src/core/sliding-window/index.ts",
+					"src/shared/ChatSettings.ts",
+					"src/core/Cline.ts",
+					"src/shared/HistoryItem.ts"
+				],
+				"stats": {
+					"time": 6143,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["index.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a code vectorization progress tracker",
+				"requiredFiles": ["src/integrations/code-prep/VectorizeCodeAgent.ts"],
+				"files": [
+					"src/integrations/code-prep/VectorizeCodeAgent.ts",
+					"src/core/webview/ClineProvider.ts",
+					"src/shared/WebviewMessage.ts",
+					"webview-ui/src/components/common/CheckpointControls.tsx",
+					"src/integrations/checkpoints/CheckpointTracker.ts"
+				],
+				"stats": {
+					"time": 6412,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["VectorizeCodeAgent.ts"]
+					}
+				}
+			},
+			{
+				"task": "add command palette integration for quick actions",
+				"requiredFiles": ["src/extension.ts"],
+				"files": [
+					"webview-ui/src/components/welcome/QuickActions.tsx",
+					"webview-ui/src/components/welcome/QuickActionTile.tsx",
+					"src/integrations/theme/default-themes/dark_modern.json",
+					"src/integrations/theme/default-themes/light_modern.json",
+					"src/extension.ts",
+					"package.json",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 7343,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement VS Code terminal integration with shell detection",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/services/mcp/McpHub.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/core/prompts/system.ts",
+					"src/shared/ChatSettings.ts",
+					"src/extension.ts",
+					".vscode/extensions.json"
+				],
+				"stats": {
+					"time": 6627,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["TerminalProcess.ts"]
+					}
+				}
+			},
+			{
+				"task": "add workspace file system watcher for live updates",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts"],
+				"files": [
+					"src/integrations/workspace/WorkspaceTracker.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/core/webview/ClineProvider.ts",
+					"src/extension.ts",
+					"src/shared/WebviewMessage.ts",
+					"src/shared/ExtensionMessage.ts"
+				],
+				"stats": {
+					"time": 6088,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "create VS Code status bar item for MCP connection status",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/extension.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/extension.ts",
+					"src/services/mcp/McpHub.ts",
+					"webview-ui/src/components/mcp/McpView.tsx",
+					"src/shared/mcp.ts",
+					"src/shared/ExtensionMessage.ts"
+				],
+				"stats": {
+					"time": 6282,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["McpHub.ts", "extension.ts"]
+					}
+				}
+			}
+		]
+	},
+	{
+		"model": "text-embedding-3-large",
+		"tasks": [
+			{
+				"task": "implement a test case to validate extension is activated",
+				"requiredFiles": ["src/test/suite/extension.test.ts", "src/extension.ts"],
+				"files": [
+					"src/test/suite/extension.test.js",
+					"src/test/extension.test.ts",
+					"src/extension.ts",
+					"src/test/suite/index.js"
+				],
+				"stats": {
+					"time": 5658,
+					"score": {
+						"matches": 2,
+						"total": 2,
+						"percentage": 100,
+						"matchedFiles": ["extension.test.ts", "extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a new tool to execute shell commands",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/core/prompts/system.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/core/prompts/system.ts",
+					"src/core/Cline.ts",
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/shared/WebviewMessage.ts",
+					"src/extension.ts"
+				],
+				"stats": {
+					"time": 7198,
+					"score": {
+						"matches": 3,
+						"total": 3,
+						"percentage": 100,
+						"matchedFiles": ["TerminalProcess.ts", "system.ts", "Cline.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a security scanner for detecting sensitive files",
+				"requiredFiles": ["src/integrations/security/code-scan.ts", "src/core/prompts/system.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/integrations/security/code-scan.ts",
+					"src/integrations/code-prep/CodeContextAddition.ts",
+					"src/integrations/code-prep/FindFilesToEditAgent.ts",
+					".vscodeignore",
+					"src/services/glob/list-files.ts",
+					"src/utils/fs.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/integrations/diagnostics/DiagnosticsMonitor.ts"
+				],
+				"stats": {
+					"time": 9192,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["code-scan.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement a file system watcher for .gitignore changes",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts", "src/core/Cline.ts", "src/extension.ts"],
+				"files": [
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/services/glob/list-files.ts",
+					"src/utils/fs.ts",
+					"src/utils/customFs.ts",
+					"src/extension.ts",
+					"src/shared/ExtensionMessage.ts"
+				],
+				"stats": {
+					"time": 6592,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["HaiFileSystemWatcher.ts", "extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement MCP server connection handling",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/services/mcp/McpHub.ts",
+					"docs/mcp/mcp-server-from-scratch.md",
+					"src/shared/mcp.ts",
+					"webview-ui/src/components/mcp/McpView.tsx",
+					"webview-ui/src/utils/mcp.ts",
+					"docs/mcp/mcp-quickstart.md"
+				],
+				"stats": {
+					"time": 6418,
+					"score": {
+						"matches": 1,
+						"total": 2,
+						"percentage": 50,
+						"matchedFiles": ["McpHub.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a sliding window mechanism for message history",
+				"requiredFiles": ["src/core/sliding-window/index.ts"],
+				"files": [
+					"webview-ui/src/components/chat/ChatView.tsx",
+					"webview-ui/src/components/history/HistoryView.tsx",
+					"src/core/sliding-window/index.ts",
+					"src/shared/ChatSettings.ts",
+					"src/core/Cline.ts",
+					"src/shared/HistoryItem.ts"
+				],
+				"stats": {
+					"time": 7193,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["index.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a code vectorization progress tracker",
+				"requiredFiles": ["src/integrations/code-prep/VectorizeCodeAgent.ts"],
+				"files": [
+					"src/integrations/code-prep/VectorizeCodeAgent.ts",
+					"src/integrations/code-prep/type.ts",
+					"webview-ui/src/components/chat/ChatRow.tsx",
+					"src/shared/WebviewMessage.ts",
+					"webview-ui/src/components/common/ProgressBar.tsx",
+					"src/core/webview/ClineProvider.ts"
+				],
+				"stats": {
+					"time": 7073,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["VectorizeCodeAgent.ts"]
+					}
+				}
+			},
+			{
+				"task": "add command palette integration for quick actions",
+				"requiredFiles": ["src/extension.ts"],
+				"files": [
+					"src/extension.ts",
+					"src/core/prompts/system.ts",
+					"webview-ui/src/components/welcome/QuickActions.tsx",
+					"webview-ui/src/components/welcome/QuickActionTile.tsx",
+					"src/shared/WebviewMessage.ts",
+					"src/shared/ExtensionMessage.ts",
+					"package.json"
+				],
+				"stats": {
+					"time": 7952,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement VS Code terminal integration with shell detection",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/services/mcp/McpHub.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/core/prompts/system.ts",
+					"src/extension.ts",
+					"src/shared/ChatSettings.ts",
+					"src/utils/constants.ts"
+				],
+				"stats": {
+					"time": 7903,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["TerminalProcess.ts"]
+					}
+				}
+			},
+			{
+				"task": "add workspace file system watcher for live updates",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts"],
+				"files": [
+					"src/integrations/workspace/WorkspaceTracker.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/core/webview/ClineProvider.ts",
+					"src/extension.ts",
+					"src/shared/WebviewMessage.ts",
+					"webview-ui/src/components/chat/ChatView.tsx"
+				],
+				"stats": {
+					"time": 6995,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "create VS Code status bar item for MCP connection status",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/extension.ts", "src/core/Cline.ts"],
+				"files": [
+					"webview-ui/src/components/mcp/McpView.tsx",
+					"src/services/mcp/McpHub.ts",
+					"src/extension.ts",
+					"src/shared/mcp.ts"
+				],
+				"stats": {
+					"time": 5865,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["McpHub.ts", "extension.ts"]
+					}
+				}
+			}
+		]
+	},
+	{
+		"model": "nomic-embed-text",
+		"tasks": [
+			{
+				"task": "implement a test case to validate extension is activated",
+				"requiredFiles": ["src/test/suite/extension.test.ts", "src/extension.ts"],
+				"files": ["src/test/suite/extension.test.js", "src/test/suite/index.js", "src/extension.ts", "package.json"],
+				"stats": {
+					"time": 6149,
+					"score": {
+						"matches": 1,
+						"total": 2,
+						"percentage": 50,
+						"matchedFiles": ["extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a new tool to execute shell commands",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/core/prompts/system.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/core/prompts/system.ts",
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/core/Cline.ts",
+					"src/extension.ts",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 6402,
+					"score": {
+						"matches": 3,
+						"total": 3,
+						"percentage": 100,
+						"matchedFiles": ["TerminalProcess.ts", "system.ts", "Cline.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a security scanner for detecting sensitive files",
+				"requiredFiles": ["src/integrations/security/code-scan.ts", "src/core/prompts/system.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/integrations/security/code-scan.ts",
+					"src/services/ripgrep/index.ts",
+					"src/core/prompts/custom.ts",
+					"src/services/glob/list-files.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/extension.ts"
+				],
+				"stats": {
+					"time": 6525,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["code-scan.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement a file system watcher for .gitignore changes",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts", "src/core/Cline.ts", "src/extension.ts"],
+				"files": [
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/services/glob/list-files.ts",
+					"src/utils/fs.ts",
+					"src/utils/customFs.ts",
+					"src/shared/ExtensionMessage.ts"
+				],
+				"stats": {
+					"time": 4609,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement MCP server connection handling",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/core/Cline.ts"],
+				"files": [
+					"docs/mcp/mcp-quickstart.md",
+					"src/core/prompts/system.ts",
+					"src/services/mcp/McpHub.ts",
+					"src/shared/mcp.ts",
+					"webview-ui/src/components/mcp/McpView.tsx",
+					"webview-ui/src/utils/mcp.ts"
+				],
+				"stats": {
+					"time": 5804,
+					"score": {
+						"matches": 1,
+						"total": 2,
+						"percentage": 50,
+						"matchedFiles": ["McpHub.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a sliding window mechanism for message history",
+				"requiredFiles": ["src/core/sliding-window/index.ts"],
+				"files": [
+					"webview-ui/src/components/chat/ChatView.tsx",
+					"src/core/Cline.ts",
+					"src/core/sliding-window/index.ts",
+					"src/shared/ChatSettings.ts",
+					"src/shared/HistoryItem.ts",
+					"webview-ui/src/components/settings/SettingsView.tsx"
+				],
+				"stats": {
+					"time": 5567,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["index.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a code vectorization progress tracker",
+				"requiredFiles": ["src/integrations/code-prep/VectorizeCodeAgent.ts"],
+				"files": [
+					"src/core/webview/ClineProvider.ts",
+					"src/integrations/code-prep/VectorizeCodeAgent.ts",
+					"src/shared/WebviewMessage.ts",
+					"webview-ui/src/components/chat/CodeIndexWarning.tsx",
+					"src/integrations/notifications/index.ts"
+				],
+				"stats": {
+					"time": 5635,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["VectorizeCodeAgent.ts"]
+					}
+				}
+			},
+			{
+				"task": "add command palette integration for quick actions",
+				"requiredFiles": ["src/extension.ts"],
+				"files": [
+					"src/extension.ts",
+					"src/shared/WebviewMessage.ts",
+					"webview-ui/src/components/welcome/QuickActions.tsx",
+					"webview-ui/src/components/welcome/QuickActionTile.tsx",
+					"package.json",
+					"CHANGELOG.md"
+				],
+				"stats": {
+					"time": 6140,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement VS Code terminal integration with shell detection",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/services/mcp/McpHub.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/extension.ts",
+					"src/shared/ChatSettings.ts"
+				],
+				"stats": {
+					"time": 5193,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["TerminalProcess.ts"]
+					}
+				}
+			},
+			{
+				"task": "add workspace file system watcher for live updates",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts"],
+				"files": [
+					"src/integrations/workspace/WorkspaceTracker.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/extension.ts",
+					"src/shared/ExtensionMessage.ts",
+					"src/core/webview/ClineProvider.ts"
+				],
+				"stats": {
+					"time": 4790,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "create VS Code status bar item for MCP connection status",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/extension.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/extension.ts",
+					"src/services/mcp/McpHub.ts",
+					"webview-ui/src/components/mcp/McpView.tsx",
+					"src/shared/mcp.ts"
+				],
+				"stats": {
+					"time": 3940,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["McpHub.ts", "extension.ts"]
+					}
+				}
+			}
+		]
+	},
+	{
+		"model": "mxbai-embed-large",
+		"tasks": [
+			{
+				"task": "implement a test case to validate extension is activated",
+				"requiredFiles": ["src/test/suite/extension.test.ts", "src/extension.ts"],
+				"files": [
+					"src/test/suite/extension.test.js",
+					"src/test/extension.test.ts",
+					"src/extension.ts",
+					"src/test/suite/index.js"
+				],
+				"stats": {
+					"time": 4672,
+					"score": {
+						"matches": 2,
+						"total": 2,
+						"percentage": 100,
+						"matchedFiles": ["extension.test.ts", "extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a new tool to execute shell commands",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/core/prompts/system.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/core/prompts/system.ts",
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/extension.ts",
+					"src/shared/WebviewMessage.ts",
+					"webview-ui/src/components/chat/ChatView.tsx"
+				],
+				"stats": {
+					"time": 6112,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["TerminalProcess.ts", "system.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a security scanner for detecting sensitive files",
+				"requiredFiles": ["src/integrations/security/code-scan.ts", "src/core/prompts/system.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/core/prompts/custom.ts",
+					"src/core/Cline.ts",
+					"src/core/prompts/system.ts",
+					"src/integrations/security/code-scan.ts",
+					"src/services/ripgrep/index.ts",
+					"src/utils/fs.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts"
+				],
+				"stats": {
+					"time": 6383,
+					"score": {
+						"matches": 3,
+						"total": 3,
+						"percentage": 100,
+						"matchedFiles": ["code-scan.ts", "system.ts", "Cline.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement a file system watcher for .gitignore changes",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts", "src/core/Cline.ts", "src/extension.ts"],
+				"files": [
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/services/glob/list-files.ts",
+					"src/utils/fs.ts",
+					"src/utils/customFs.ts",
+					"src/integrations/workspace/WorkspaceTracker.ts"
+				],
+				"stats": {
+					"time": 4889,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement MCP server connection handling",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/services/mcp/McpHub.ts",
+					"src/core/prompts/system.ts",
+					"src/core/Cline.ts",
+					"src/shared/mcp.ts",
+					"src/webview-ui/src/components/mcp/McpView.tsx",
+					"src/shared/WebviewMessage.ts",
+					"src/services/auth/FirebaseAuthManager.ts"
+				],
+				"stats": {
+					"time": 6042,
+					"score": {
+						"matches": 2,
+						"total": 2,
+						"percentage": 100,
+						"matchedFiles": ["McpHub.ts", "Cline.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a sliding window mechanism for message history",
+				"requiredFiles": ["src/core/sliding-window/index.ts"],
+				"files": [
+					"src/core/Cline.ts",
+					"src/core/sliding-window/index.ts",
+					"webview-ui/src/components/chat/BrowserSessionRow.tsx",
+					"src/shared/ChatSettings.ts",
+					"src/shared/HistoryItem.ts",
+					"src/core/assistant-message/index.ts"
+				],
+				"stats": {
+					"time": 5606,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["index.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a code vectorization progress tracker",
+				"requiredFiles": ["src/integrations/code-prep/VectorizeCodeAgent.ts"],
+				"files": [
+					"src/core/webview/ClineProvider.ts",
+					"src/integrations/code-prep/VectorizeCodeAgent.ts",
+					"src/shared/WebviewMessage.ts",
+					"webview-ui/src/components/chat/CodeIndexWarning.tsx",
+					"src/integrations/notifications/index.ts",
+					"src/shared/ExtensionMessage.ts"
+				],
+				"stats": {
+					"time": 5494,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["VectorizeCodeAgent.ts"]
+					}
+				}
+			},
+			{
+				"task": "add command palette integration for quick actions",
+				"requiredFiles": ["src/extension.ts"],
+				"files": [
+					"webview-ui/src/components/chat/ChatView.tsx",
+					"webview-ui/src/components/welcome/QuickActionTile.tsx",
+					"webview-ui/src/components/welcome/QuickActions.tsx",
+					"src/extension.ts",
+					"package.json",
+					"webview-ui/src/utils/vscode.ts",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 5996,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement VS Code terminal integration with shell detection",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/services/mcp/McpHub.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/core/webview/ClineProvider.ts",
+					"src/extension.ts",
+					"src/shared/ChatSettings.ts"
+				],
+				"stats": {
+					"time": 4958,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["TerminalProcess.ts"]
+					}
+				}
+			},
+			{
+				"task": "add workspace file system watcher for live updates",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts"],
+				"files": [
+					"src/integrations/workspace/WorkspaceTracker.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/core/webview/ClineProvider.ts",
+					"src/services/mcp/McpHub.ts",
+					"src/core/Cline.ts",
+					"src/shared/WebviewMessage.ts",
+					"src/extension.ts"
+				],
+				"stats": {
+					"time": 6061,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "create VS Code status bar item for MCP connection status",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/extension.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/services/mcp/McpHub.ts",
+					"src/extension.ts",
+					"src/shared/mcp.ts",
+					"webview-ui/src/components/mcp/McpView.tsx",
+					"src/shared/ExtensionMessage.ts"
+				],
+				"stats": {
+					"time": 6463,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["McpHub.ts", "extension.ts"]
+					}
+				}
+			}
+		]
+	},
+	{
+		"model": "snowflake-arctic-embed",
+		"tasks": [
+			{
+				"task": "implement a test case to validate extension is activated",
+				"requiredFiles": ["src/test/suite/extension.test.ts", "src/extension.ts"],
+				"files": [
+					"src/test/suite/extension.test.js",
+					"src/test/suite/index.js",
+					"src/extension.ts",
+					"src/test/extension.test.ts"
+				],
+				"stats": {
+					"time": 4859,
+					"score": {
+						"matches": 2,
+						"total": 2,
+						"percentage": 100,
+						"matchedFiles": ["extension.test.ts", "extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a new tool to execute shell commands",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/core/prompts/system.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/core/prompts/custom.ts",
+					"src/core/prompts/system.ts",
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/extension.ts",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 5909,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["TerminalProcess.ts", "system.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a security scanner for detecting sensitive files",
+				"requiredFiles": ["src/integrations/security/code-scan.ts", "src/core/prompts/system.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/integrations/security/code-scan.ts",
+					"src/services/ripgrep/index.ts",
+					"src/core/prompts/system.ts",
+					"src/services/glob/list-files.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/shared/ChatSettings.ts",
+					"src/utils/fs.ts"
+				],
+				"stats": {
+					"time": 6731,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["code-scan.ts", "system.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement a file system watcher for .gitignore changes",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts", "src/core/Cline.ts", "src/extension.ts"],
+				"files": [
+					"src/services/workspace/HaiFileSystemWatcher.ts",
+					"src/extension.ts",
+					"src/shared/haiDefaults.ts",
+					"src/utils/fs.ts",
+					"src/utils/fs.test.ts",
+					"src/services/workspace/WorkspaceTracker.ts"
+				],
+				"stats": {
+					"time": 7763,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["HaiFileSystemWatcher.ts", "extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement MCP server connection handling",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/core/Cline.ts"],
+				"files": [
+					"docs/mcp/mcp-quickstart.md",
+					"docs/mcp/mcp-server-from-github.md",
+					"src/shared/mcp.ts",
+					"src/core/prompts/system.ts",
+					"src/services/mcp/McpHub.ts",
+					"webview-ui/src/components/mcp/McpView.tsx",
+					"src/shared/WebviewMessage.ts",
+					"src/shared/ExtensionMessage.ts"
+				],
+				"stats": {
+					"time": 6491,
+					"score": {
+						"matches": 1,
+						"total": 2,
+						"percentage": 50,
+						"matchedFiles": ["McpHub.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a sliding window mechanism for message history",
+				"requiredFiles": ["src/core/sliding-window/index.ts"],
+				"files": [
+					"src/shared/combineCommandSequences.ts",
+					"webview-ui/src/components/chat/ChatTextArea.tsx",
+					"src/shared/getApiMetrics.ts",
+					"src/core/mentions/index.ts",
+					"src/core/sliding-window/index.ts",
+					"src/core/Cline.ts",
+					"src/shared/ChatSettings.ts",
+					"webview-ui/src/components/chat/ChatView.tsx",
+					"src/shared/HistoryItem.ts"
+				],
+				"stats": {
+					"time": 7279,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["index.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a code vectorization progress tracker",
+				"requiredFiles": ["src/integrations/code-prep/VectorizeCodeAgent.ts"],
+				"files": [
+					"src/core/prompts/system.ts",
+					"src/core/prompts/custom.ts",
+					"src/integrations/code-prep/VectorizeCodeAgent.ts",
+					"src/integrations/notifications/index.ts",
+					"src/shared/WebviewMessage.ts",
+					"webview-ui/src/components/common/CodeIndexWarning.tsx",
+					"src/integrations/checkpoints/CheckpointTracker.ts"
+				],
+				"stats": {
+					"time": 6270,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["VectorizeCodeAgent.ts"]
+					}
+				}
+			},
+			{
+				"task": "add command palette integration for quick actions",
+				"requiredFiles": ["src/extension.ts"],
+				"files": [
+					"src/extension.ts",
+					"src/core/prompts/custom.ts",
+					"src/core/prompts/system.ts",
+					"webview-ui/src/components/common/Demo.tsx",
+					"package.json",
+					"src/utils/constants.ts",
+					"webview-ui/src/components/welcome/QuickActions.tsx",
+					"webview-ui/src/components/welcome/QuickActionTile.tsx"
+				],
+				"stats": {
+					"time": 6205,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement VS Code terminal integration with shell detection",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/services/mcp/McpHub.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/extension.ts",
+					"src/shared/ExtensionMessage.ts",
+					"src/utils/constants.ts"
+				],
+				"stats": {
+					"time": 5218,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["TerminalProcess.ts"]
+					}
+				}
+			},
+			{
+				"task": "add workspace file system watcher for live updates",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts"],
+				"files": [
+					"src/shared/haiDefaults.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/integrations/workspace/WorkspaceTracker.ts",
+					"src/extension.ts",
+					"src/core/Cline.ts",
+					"src/shared/ExtensionMessage.ts",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 5726,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "create VS Code status bar item for MCP connection status",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/extension.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/extension.ts",
+					"src/services/mcp/McpHub.ts",
+					"src/shared/mcp.ts",
+					"src/shared/ExtensionMessage.ts",
+					"webview-ui/src/components/mcp/McpView.tsx"
+				],
+				"stats": {
+					"time": 4754,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["McpHub.ts", "extension.ts"]
+					}
+				}
+			}
+		]
+	},
+	{
+		"model": "bge-m3",
+		"tasks": [
+			{
+				"task": "implement a test case to validate extension is activated",
+				"requiredFiles": ["src/test/suite/extension.test.ts", "src/extension.ts"],
+				"files": [
+					"src/test/suite/extension.test.js",
+					"src/test/extension.test.ts",
+					"src/extension.ts",
+					"src/test/suite/index.js"
+				],
+				"stats": {
+					"time": 5246,
+					"score": {
+						"matches": 2,
+						"total": 2,
+						"percentage": 100,
+						"matchedFiles": ["extension.test.ts", "extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a new tool to execute shell commands",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/core/prompts/system.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/core/prompts/custom.ts",
+					"src/core/prompts/system.ts",
+					"src/core/assistant-message/index.ts",
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/shared/WebviewMessage.ts",
+					"src/extension.ts"
+				],
+				"stats": {
+					"time": 6252,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["TerminalProcess.ts", "system.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a security scanner for detecting sensitive files",
+				"requiredFiles": ["src/integrations/security/code-scan.ts", "src/core/prompts/system.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/integrations/security/code-scan.ts",
+					"src/services/ripgrep/index.ts",
+					"src/services/glob/list-files.ts",
+					"src/core/prompts/custom.ts",
+					"src/shared/ChatSettings.ts",
+					"webview-ui/src/components/chat/ChatRowExtra.tsx",
+					"src/utils/fs.ts",
+					"src/integrations/diagnostics/DiagnosticsMonitor.ts"
+				],
+				"stats": {
+					"time": 6402,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["code-scan.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement a file system watcher for .gitignore changes",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts", "src/core/Cline.ts", "src/extension.ts"],
+				"files": [
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/integrations/code-prep/helper.ts",
+					".vscodeignore",
+					"src/services/glob/list-files.ts",
+					"src/utils/fs.ts"
+				],
+				"stats": {
+					"time": 4508,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement MCP server connection handling",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/services/mcp/McpHub.ts",
+					"src/shared/ExtensionMessage.ts",
+					"src/shared/mcp.ts",
+					"docs/mcp/README.md",
+					"docs/mcp/mcp-server-from-scratch.md",
+					"webview-ui/src/components/mcp/McpView.tsx",
+					"src/core/prompts/system.ts",
+					"webview-ui/src/utils/mcp.ts"
+				],
+				"stats": {
+					"time": 6357,
+					"score": {
+						"matches": 1,
+						"total": 2,
+						"percentage": 50,
+						"matchedFiles": ["McpHub.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a sliding window mechanism for message history",
+				"requiredFiles": ["src/core/sliding-window/index.ts"],
+				"files": [
+					"src/core/Cline.ts",
+					"src/core/sliding-window/index.ts",
+					"src/shared/ChatSettings.ts",
+					"src/shared/combineApiRequests.ts",
+					"src/shared/combineCommandSequences.ts",
+					"webview-ui/src/components/chat/ChatView.tsx",
+					"webview-ui/src/components/settings/SettingsView.tsx"
+				],
+				"stats": {
+					"time": 5242,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["index.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a code vectorization progress tracker",
+				"requiredFiles": ["src/integrations/code-prep/VectorizeCodeAgent.ts"],
+				"files": [
+					"src/core/webview/ClineProvider.ts",
+					"src/integrations/code-prep/VectorizeCodeAgent.ts",
+					"webview-ui/src/components/common/CheckpointControls.tsx",
+					"src/integrations/checkpoints/CheckpointTracker.ts",
+					"src/shared/WebviewMessage.ts",
+					"webview-ui/src/components/chat/ChatView.tsx"
+				],
+				"stats": {
+					"time": 5922,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["VectorizeCodeAgent.ts"]
+					}
+				}
+			},
+			{
+				"task": "add command palette integration for quick actions",
+				"requiredFiles": ["src/extension.ts"],
+				"files": [
+					"src/core/prompts/custom.ts",
+					"webview-ui/src/components/welcome/QuickActions.tsx",
+					"webview-ui/src/components/chat/ChatView.tsx",
+					"webview-ui/src/components/welcome/QuickActionTile.tsx",
+					"src/extension.ts",
+					"src/shared/WebviewMessage.ts",
+					"package.json"
+				],
+				"stats": {
+					"time": 5527,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement VS Code terminal integration with shell detection",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/services/mcp/McpHub.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"webview-ui/src/components/chat/ChatRow.tsx",
+					"src/extension.ts",
+					"src/shared/ExtensionMessage.ts"
+				],
+				"stats": {
+					"time": 4922,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["TerminalProcess.ts"]
+					}
+				}
+			},
+			{
+				"task": "add workspace file system watcher for live updates",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts"],
+				"files": [
+					"src/integrations/workspace/WorkspaceTracker.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/extension.ts",
+					"src/shared/ExtensionMessage.ts",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 4723,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "create VS Code status bar item for MCP connection status",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/extension.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/extension.ts",
+					"src/services/mcp/McpHub.ts",
+					"webview-ui/src/components/mcp/McpView.tsx",
+					"src/shared/mcp.ts"
+				],
+				"stats": {
+					"time": 4567,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["McpHub.ts", "extension.ts"]
+					}
+				}
+			}
+		]
+	},
+	{
+		"model": "bge-large",
+		"tasks": [
+			{
+				"task": "implement a test case to validate extension is activated",
+				"requiredFiles": ["src/test/suite/extension.test.ts", "src/extension.ts"],
+				"files": [
+					"src/test/suite/extension.test.js",
+					"src/test/extension.test.ts",
+					"src/extension.ts",
+					"src/test/suite/index.js"
+				],
+				"stats": {
+					"time": 4779,
+					"score": {
+						"matches": 2,
+						"total": 2,
+						"percentage": 100,
+						"matchedFiles": ["extension.test.ts", "extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a new tool to execute shell commands",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/core/prompts/system.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/core/prompts/system.ts",
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/extension.ts",
+					"src/shared/WebviewMessage.ts",
+					"webview-ui/src/components/chat/ChatView.tsx"
+				],
+				"stats": {
+					"time": 6180,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["TerminalProcess.ts", "system.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a security scanner for detecting sensitive files",
+				"requiredFiles": ["src/integrations/security/code-scan.ts", "src/core/prompts/system.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/integrations/security/code-scan.ts",
+					"src/core/Cline.ts",
+					"src/services/ripgrep/index.ts",
+					"src/services/glob/list-files.ts",
+					"src/shared/ChatSettings.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts"
+				],
+				"stats": {
+					"time": 5320,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["code-scan.ts", "Cline.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement a file system watcher for .gitignore changes",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts", "src/core/Cline.ts", "src/extension.ts"],
+				"files": [
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/integrations/code-prep/helper.ts",
+					"src/services/glob/list-files.ts",
+					"src/utils/fs.ts",
+					"src/utils/customFs.ts"
+				],
+				"stats": {
+					"time": 5207,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement MCP server connection handling",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/services/mcp/McpHub.ts",
+					"src/core/prompts/system.ts",
+					"src/shared/mcp.ts",
+					"src/webview-ui/src/components/mcp/McpView.tsx",
+					"src/webview-ui/src/components/mcp/McpResourceRow.tsx",
+					"src/shared/WebviewMessage.ts",
+					"src/services/auth/FirebaseAuthManager.ts"
+				],
+				"stats": {
+					"time": 6873,
+					"score": {
+						"matches": 1,
+						"total": 2,
+						"percentage": 50,
+						"matchedFiles": ["McpHub.ts"]
+					}
+				}
+			},
+			{
+				"task": "add a sliding window mechanism for message history",
+				"requiredFiles": ["src/core/sliding-window/index.ts"],
+				"files": [
+					"src/core/Cline.ts",
+					"src/core/sliding-window/index.ts",
+					"src/shared/ChatSettings.ts",
+					"webview-ui/src/components/chat/ChatView.tsx",
+					"webview-ui/src/components/chat/BrowserSessionRow.tsx",
+					"src/shared/HistoryItem.ts"
+				],
+				"stats": {
+					"time": 5069,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["index.ts"]
+					}
+				}
+			},
+			{
+				"task": "create a code vectorization progress tracker",
+				"requiredFiles": ["src/integrations/code-prep/VectorizeCodeAgent.ts"],
+				"files": [
+					"src/core/webview/ClineProvider.ts",
+					"src/integrations/code-prep/VectorizeCodeAgent.ts",
+					"src/shared/WebviewMessage.ts",
+					"webview-ui/src/components/common/CodeIndexWarning.tsx",
+					"src/integrations/notifications/index.ts",
+					"webview-ui/src/components/chat/ChatView.tsx"
+				],
+				"stats": {
+					"time": 5563,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["VectorizeCodeAgent.ts"]
+					}
+				}
+			},
+			{
+				"task": "add command palette integration for quick actions",
+				"requiredFiles": ["src/extension.ts"],
+				"files": [
+					"webview-ui/src/components/welcome/QuickActionTile.tsx",
+					"webview-ui/src/components/welcome/QuickActions.tsx",
+					"webview-ui/src/components/settings/OpenRouterModelPicker.tsx",
+					"webview-ui/src/components/chat/ChatView.tsx",
+					"src/extension.ts",
+					"package.json",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 5993,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["extension.ts"]
+					}
+				}
+			},
+			{
+				"task": "implement VS Code terminal integration with shell detection",
+				"requiredFiles": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/services/mcp/McpHub.ts",
+					"src/core/Cline.ts"
+				],
+				"files": [
+					"src/integrations/terminal/TerminalProcess.ts",
+					"src/integrations/terminal/TerminalManager.ts",
+					"src/integrations/terminal/TerminalRegistry.ts",
+					"src/extension.ts",
+					"src/shared/ExtensionMessage.ts"
+				],
+				"stats": {
+					"time": 4722,
+					"score": {
+						"matches": 1,
+						"total": 3,
+						"percentage": 33.33333333333333,
+						"matchedFiles": ["TerminalProcess.ts"]
+					}
+				}
+			},
+			{
+				"task": "add workspace file system watcher for live updates",
+				"requiredFiles": ["src/integrations/workspace/HaiFileSystemWatcher.ts"],
+				"files": [
+					"src/integrations/workspace/WorkspaceTracker.ts",
+					"src/integrations/workspace/HaiFileSystemWatcher.ts",
+					"src/core/webview/ClineProvider.ts",
+					"src/services/mcp/McpHub.ts",
+					"src/extension.ts",
+					"src/shared/WebviewMessage.ts"
+				],
+				"stats": {
+					"time": 5022,
+					"score": {
+						"matches": 1,
+						"total": 1,
+						"percentage": 100,
+						"matchedFiles": ["HaiFileSystemWatcher.ts"]
+					}
+				}
+			},
+			{
+				"task": "create VS Code status bar item for MCP connection status",
+				"requiredFiles": ["src/services/mcp/McpHub.ts", "src/extension.ts", "src/core/Cline.ts"],
+				"files": [
+					"src/services/mcp/McpHub.ts",
+					"src/extension.ts",
+					"webview-ui/src/components/mcp/McpView.tsx",
+					"src/shared/mcp.ts",
+					"src/shared/ExtensionMessage.ts"
+				],
+				"stats": {
+					"time": 5090,
+					"score": {
+						"matches": 2,
+						"total": 3,
+						"percentage": 66.66666666666666,
+						"matchedFiles": ["McpHub.ts", "extension.ts"]
+					}
+				}
+			}
+		]
+	}
+]

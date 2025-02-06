@@ -16,6 +16,7 @@ import { buildApiHandler } from "../../api"
 import { ensureFaissPlatformDeps } from "../../utils/faiss"
 import { EmbeddingConfiguration } from "../../shared/embeddings"
 import { OllamaEmbeddings } from "@langchain/ollama"
+import { HaiBuildDefaults } from "../../shared/haiDefaults"
 
 export class FindFilesToEditAgent {
 	private srcFolder: string
@@ -31,6 +32,9 @@ export class FindFilesToEditAgent {
 
 	private SYSTEM_PROMPT: string = `You are a world class software developer.`
 
+	private faissWithContextDir: string
+	private faissWithoutContextDir: string
+
 	constructor(
 		srcFolder: string,
 		llmApiConfig: ApiConfiguration,
@@ -38,6 +42,8 @@ export class FindFilesToEditAgent {
 		buildContextOptions: HaiBuildContextOptions,
 		task: string,
 		contextDir = ".hai",
+		faissWithContextDir = HaiBuildDefaults.defaultFaissWithContextDir,
+		faissWithoutContextDir = HaiBuildDefaults.defaultFaissWithoutContextDir,
 	) {
 		this.srcFolder = srcFolder
 		this.llmApiConfig = llmApiConfig
@@ -47,11 +53,13 @@ export class FindFilesToEditAgent {
 		this.task = task
 		this.buildContextOptions = buildContextOptions
 		this.contextDir = contextDir
+		this.faissWithContextDir = faissWithContextDir
+		this.faissWithoutContextDir = faissWithoutContextDir
 	}
 
 	private async job(): Promise<string[]> {
-		const faissWithContextDir = ".faiss-context"
-		const faissWithoutContextDir = ".faiss"
+		const faissWithContextDir = this.faissWithContextDir
+		const faissWithoutContextDir = this.faissWithoutContextDir
 
 		// faiss db path
 		const faissDbPath = this.buildContextOptions.useContext
@@ -63,6 +71,7 @@ export class FindFilesToEditAgent {
 			"node_modules",
 			".husky",
 			".vscode",
+			...HaiBuildDefaults.defaultDirsToIgnore,
 			this.contextDir,
 			faissWithoutContextDir,
 			faissWithContextDir,
@@ -86,6 +95,7 @@ export class FindFilesToEditAgent {
 			this.vectorStore = await FaissStore.load(faissDbPath, this.embeddings)
 		} catch (error) {
 			// vector store not found
+			console.log("vector store not found, creating new one")
 			return []
 		}
 

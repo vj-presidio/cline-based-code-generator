@@ -15,6 +15,7 @@ import { HaiBuildDefaults } from "../../shared/haiDefaults"
 import { EmbeddingConfiguration } from "../../shared/embeddings"
 import { fileExists } from "../../utils/runtime-downloader"
 import { OllamaEmbeddings } from "@langchain/ollama"
+import { encoding_for_model as encodingForModel } from "tiktoken"
 
 export class VectorizeCodeAgent extends EventEmitter {
 	private srcFolder: string
@@ -37,11 +38,17 @@ export class VectorizeCodeAgent extends EventEmitter {
 
 	running: boolean = false
 
+	private faissWithContextDir: string
+	private faissWithoutContextDir: string
+	totalTokenConsumed: number = 0
+
 	constructor(
 		srcFolder: string,
 		embeddingConfig: EmbeddingConfiguration,
 		buildContextOptions: HaiBuildContextOptions,
 		contextDir = HaiBuildDefaults.defaultContextDirectory,
+		faissWithContextDir = HaiBuildDefaults.defaultFaissWithContextDir,
+		faissWithoutContextDir = HaiBuildDefaults.defaultFaissWithoutContextDir,
 	) {
 		super()
 		this.srcFolder = srcFolder
@@ -51,6 +58,8 @@ export class VectorizeCodeAgent extends EventEmitter {
 		this.buildContextOptions = buildContextOptions
 		this.contextDir = contextDir
 		ensureGitignorePattern(this.srcFolder, `${this.contextDir}/`)
+		this.faissWithContextDir = faissWithContextDir
+		this.faissWithoutContextDir = faissWithoutContextDir
 	}
 
 	private emitProgress(count: number, ignore: boolean = false) {
@@ -71,13 +80,15 @@ export class VectorizeCodeAgent extends EventEmitter {
 			start: true,
 		})
 
-		const faissWithContextDir = ".faiss-context"
-		const faissWithoutContextDir = ".faiss"
+		const faissWithContextDir = this.faissWithContextDir
+		const faissWithoutContextDir = this.faissWithoutContextDir
 
 		// faiss db path
 		const faissDbPath = this.buildContextOptions.useContext
 			? join(this.srcFolder, this.contextDir, faissWithContextDir)
 			: join(this.srcFolder, this.contextDir, faissWithoutContextDir)
+
+		console.log("faissDbPath", faissDbPath)
 
 		const defaultExcludeDirs: string[] = [
 			...HaiBuildDefaults.defaultDirsToIgnore,
@@ -158,6 +169,18 @@ export class VectorizeCodeAgent extends EventEmitter {
 			}
 			// read the file content
 			const fileContent = readFileSync(id, "utf-8")
+
+			// try {
+			// 	const encoding = encodingForModel("gpt-4o")
+			// 	const tokenLength = encoding.encode(fileContent).length
+
+			// 	this.totalTokenConsumed += tokenLength
+			// } catch (error) {
+			// 	// ignore, we can't do anything about it, the file is binary
+			// } finally {
+			// 	console.log("totalTokenConsumed", this.totalTokenConsumed)
+			// }
+
 			// create a hash of the file content
 			const fileContentHashMD5 = createHash("md5")
 				.update(
